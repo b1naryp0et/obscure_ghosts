@@ -25,8 +25,9 @@ $(document).ready (function () {
     x.api_key = apiKey;
     x.email = email;
 
-    $.post(url,x, function (data, status), 'json') {
+    $.post(url,x, function (data, status) {
       auth = data.auth_token;
-    }
+    },
+    json);
   });
 });
