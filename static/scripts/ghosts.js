@@ -80,7 +80,7 @@ function fillTasks (project) {
   $('#projectTasks').empty();
   for (task of project.tasks) {
     $('#projectTasks').append('<div class="task" data-id="' + task.id.toString() + '"></div>');
-      $('#projectTasks').last().append('<h3 class="taskTitle">' + (task.position-1) + '. ' + task.title + '</h3>');
+    $('#projectTasks').last().append('<h3 class="taskTitle">' + (task.position-1) + '. ' + task.title + '</h3>');
     $('#projectTasks').last().append('<div class="checksContainer" id="' + task.id.toString() + '-checks"></div>');
     $('#projectTasks').last().append('<button class="checkSubmit" data-id="' + task.id.toString() + '" type="submit">Traverse the mist</button>');
   }
@@ -101,13 +101,15 @@ function getProj () {
   }
   let projnum = userText.match(regexp)[0];
   $.get('./api/projects/' + projnum + '.json?auth_token=' + auth, function (data, status) {
+    console.log(data);
     fillTasks(data);
   },'json').fail(function(response){
+    console.log("FAIL",response);
     if (response.status == 401) { // API key expired
       storage.auth = "";
       $('#projectUrl, #projectSubmit').hide();
       $('#passwd, #email, #apiKey, #authSubmit').show();
-    } else if (response.status == 404) { // bad project ID
+    } else { // bad project ID
       $('#projectTasks').empty();
       alert("invalid project id");
     }
