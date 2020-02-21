@@ -75,7 +75,7 @@ function fillTasks (project) {
   $('#projectTasks').empty();
   for (task of project.tasks) {
     $('#projectTasks').append('<div class="task" data-id="' + task.id.toString() + '"></div>');
-    $('#projectTasks').last().append('<h3 class="taskTitle">' + task.title + '</h3>');
+      $('#projectTasks').last().append('<h3 class="taskTitle">' + (task.position-1) + '. ' + task.title + '</h3>');
     $('#projectTasks').last().append('<div class="checksContainer" id="' + task.id.toString() + '-checks"></div>');
     $('#projectTasks').last().append('<button class="checkSubmit" data-id="' + task.id.toString() + '" type="submit">Traverse the mist</button>');
   }
