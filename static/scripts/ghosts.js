@@ -78,6 +78,7 @@ function startCorrection (taskId) {
 function fillTasks (project) {
   // Fill the html with tasks for a project
   $('#projectTasks').empty();
+  $('#projectTasks').append('<h2 class="projectTitle">' + project.name + "</h2>");
   for (task of project.tasks) {
     $('#projectTasks').append('<div class="task" data-id="' + task.id.toString() + '"></div>');
     $('#projectTasks').last().append('<h3 class="taskTitle">' + (task.position-1) + '. ' + task.title + '</h3>');
