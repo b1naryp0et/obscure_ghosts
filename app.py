@@ -18,8 +18,9 @@ def api_req(req):
         res = requests.get(base_path + req, params=request.args)
         return (res.text, res.status_code)
     if request.method == 'POST':
+        params = request.args
         data = request.form.to_dict()
-        res = requests.post(base_path + req, data=data)
+        res = requests.post(base_path + req, data=data, params=params)
         return (res.text, res.status_code)
 
 if __name__ == "__main__":

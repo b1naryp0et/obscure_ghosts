@@ -26,6 +26,37 @@ function getAuth () {
   'json');
 }
 
+
+
+function pollCorrection (correctionId) {
+  $.get('/api/correction_requests/' + correctionId + '.json?auth_token=' + auth, function (data, status) {
+    if (data.status === 'Fail') {
+      alert('Something happened with the correction');
+      return;
+    } else if (data.status === 'Done') {
+      corr = data;
+      return;
+    } else {
+      setTimeout(() => pollCorrection(correctionId), 5000);
+    }
+ },
+ 'json');
+}
+
+function startCorrection (taskId) {
+  $.post('/api/tasks/' + taskId + '/start_correction.json?auth_token=' + auth, function (data, status) {
+    if (data.id !== null && data.id !== 0) {
+      alert('correctionRequestSent');
+      pollCorrection(data.id);
+    } else {
+      alert('could not correct');
+    }
+  },
+  'json');
+}
+
+
+
 function fillTasks (project) {
   for (task of project.tasks) {
     $('#projectTasks').append('<div class="task" data-id="' + task.id.toString() + '"></div>');
@@ -43,11 +74,7 @@ function getProj () {
     return
   }
   let projnum = userText.match(regexp)[0];
-  alert(projnum);
-  alert(userText.match(regexp).toString());
   $.get('./api/projects/' + projnum + '.json?auth_token=' + auth, function (data, status) {
-    alert(data);
-    alert(status);
     proj = data;    
     fillTasks(proj);
   },
@@ -57,6 +84,7 @@ function getProj () {
 
 var auth = undefined;
 var proj = undefined;
+var corr = undefined;
 $(document).ready (function () {
 
   //--- Get the auth key on button click or pressing enter ---vv
@@ -69,4 +97,8 @@ $(document).ready (function () {
   //----------------------------------------------------------^^
 
   $('#projectSubmit').click(getProj);
+  $('.checkSubmit').click(function () {
+    console.log($(this).dataset.id);
+    startCorrection($(this).dataset.id);
+  });
 });
