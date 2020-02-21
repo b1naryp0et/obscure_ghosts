@@ -26,7 +26,37 @@ function getAuth () {
   'json');
 }
 
+function fillTasks (project) {
+  for (task of project.tasks) {
+    $('#projectTasks').append('<div class="task" data-id="' + task.id.toString() + '"></div>');
+    $('#projectTasks').last().append('<h3 class="taskTitle">' + task.title + '</h3>');
+    $('#projectTasks').last().append('<div class="checksContainer" id="' + task.id.toString() + '-checks"></div>');
+    $('#projectTasks').last().append('<input class="checkSubmit" data-id="' + task.id.toString() + '" type="submit">');
+  }
+}
+
+function getProj () {
+  let regexp = /[\d]{1,4}/;
+  let userText = $('#projectUrl').val();
+  if (userText === '' || userText.match(regexp) === null) {
+    alert('Project url is empty or doesn\'t contain project number.');
+    return
+  }
+  let projnum = userText.match(regexp)[0];
+  alert(projnum);
+  alert(userText.match(regexp).toString());
+  $.get('./api/projects/' + projnum + '.json?auth_token=' + auth, function (data, status) {
+    alert(data);
+    alert(status);
+    proj = data;    
+    fillTasks(proj);
+  },
+  'json');
+}
+
+
 var auth = undefined;
+var proj = undefined;
 $(document).ready (function () {
 
   //--- Get the auth key on button click or pressing enter ---vv
@@ -38,4 +68,5 @@ $(document).ready (function () {
   });
   //----------------------------------------------------------^^
 
+  $('#projectSubmit').click(getProj);
 });
