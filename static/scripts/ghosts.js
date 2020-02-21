@@ -22,13 +22,17 @@ function getAuth () {
 
   $.post(url,x, function (data, status) {
     auth = data.auth_token;
-    $('#passwd, #email, #apiKey, #authSubmit').hide();
-    $('#projectUrl, #projectSubmit').show();
+      localStorage.auth = auth;
+      gotAuth();
   },
   'json');
 }
 
-
+// Hide login fields and display project ID input
+function gotAuth() {
+    $('#passwd, #email, #apiKey, #authSubmit').hide();
+    $('#projectUrl, #projectSubmit').show();
+}
 
 function pollCorrection (correctionId, taskId) {
   // Poll the state of the correction until done (needs eventual timeout)
@@ -97,15 +101,20 @@ function getProj () {
   let projnum = userText.match(regexp)[0];
   $.get('./api/projects/' + projnum + '.json?auth_token=' + auth, function (data, status) {
     fillTasks(data);
-  },
-  'json');
+  },'json').fail( function(){
+    // If the request failed (API key expired):
+    localStorage.auth = undefined;
+    $('#projectUrl, #projectSubmit').hide();
+    $('#passwd, #email, #apiKey, #authSubmit').show();
+  });
 }
 
-
-var auth = undefined;
+var auth = localStorage.auth;
 $(document).ready (function () {
   $('#projectUrl, #projectSubmit').hide()
-
+  if (auth)
+    gotAuth();
+    
   //--- Get the auth key on button click or pressing enter ---vv
   $('#authSubmit').click(getAuth);
   $('#passwd, #email, #apiKey').keyup(function (e) {
