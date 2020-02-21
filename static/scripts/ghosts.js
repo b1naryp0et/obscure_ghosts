@@ -2,24 +2,24 @@ var pwd = undefined;
 var auth = undefined;
 var email = undefined;
 var apiKey = undefined;
-const url = 'https://intranet.hbtn.io/users/auth_token.json';
+const url = './api/users/auth_token.json';
 
 
 $(document).ready (function () {
 
   $('#passwd').change(function () {
-    let pwd = $('#passwd').val();
+    let pwd = $('#passwd').val;
   });
 
   $('#email').change(function () {
-    let email = $('#email').val();
+    let email = $('#email').val;
   });
 
   $('#apiKey').change(function () {
-    let apiKey = ('#apiKey').val();
+    let apiKey = ('#apiKey').val;
   });
 
-  $('#submit').change(function () {
+  $('#submit').click(function () {
     let x = {};
     x.password = pwd;
     x.api_key = apiKey;
@@ -30,6 +30,6 @@ $(document).ready (function () {
       alert(status);
       auth = data.auth_token;
     },
-    json);
+    'json');
   });
 });
