@@ -124,5 +124,14 @@ $(document).ready (function () {
   });
   //----------------------------------------------------------^^
 
+
+  //--- Get the  on button click or pressing enter ---vv
   $('#projectSubmit').click(getProj);
+  $('#projectUrl').keyup(function (e) {
+    if (e.keyCode === 13) {
+      getProj();
+    }
+  });
+  //----------------------------------------------------------^^
+
 });
