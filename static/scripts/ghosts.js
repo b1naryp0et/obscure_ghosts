@@ -72,6 +72,7 @@ function startCorrection (taskId) {
 
 function fillTasks (project) {
   // Fill the html with tasks for a project
+  $('#projectTasks').empty();
   for (task of project.tasks) {
     $('#projectTasks').append('<div class="task" data-id="' + task.id.toString() + '"></div>');
     $('#projectTasks').last().append('<h3 class="taskTitle">' + task.title + '</h3>');
@@ -95,16 +96,13 @@ function getProj () {
   }
   let projnum = userText.match(regexp)[0];
   $.get('./api/projects/' + projnum + '.json?auth_token=' + auth, function (data, status) {
-    proj = data;    
-    fillTasks(proj);
-    $('#projectUrl, #projectSubmit').hide()
+    fillTasks(data);
   },
   'json');
 }
 
 
 var auth = undefined;
-var proj = undefined;
 $(document).ready (function () {
   $('#projectUrl, #projectSubmit').hide()
 
