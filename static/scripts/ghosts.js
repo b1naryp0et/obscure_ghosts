@@ -7,25 +7,27 @@ const url = 'https://intranet.hbtn.io/users/auth_token.json';
 
 $(document).ready (function () {
 
-  $('#name').click(function () {
-    let name = $('#name').val();
+  $('#passwd').change(function () {
+    let pwd = $('#passwd').val();
   });
 
-  $('#email').click(function () {
+  $('#email').change(function () {
     let email = $('#email').val();
   });
 
-  $('#apiKey').click(function () {
+  $('#apiKey').change(function () {
     let apiKey = ('#apiKey').val();
   });
 
-  $('input').click(function () {
+  $('#submit').change(function () {
     let x = {};
     x.password = pwd;
     x.api_key = apiKey;
     x.email = email;
 
     $.post(url,x, function (data, status) {
+      alert(data);
+      alert(status);
       auth = data.auth_token;
     },
     json);
