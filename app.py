@@ -12,7 +12,13 @@ def home():
 def api_req(req):
     return "Yes"
     base_path = 'https://intranet.hbtn.io/'
-    return requests.get('intranet.hbtn.io/' + req).text
+    if request.method == 'GET':
+    	res = requests.get(base_path + req).text
+        return (res, res.status_code)
+    if request.method == 'POST':
+        data = request.form.to_dict()
+        res = requests.post(base_path + req, data=data).text
+        return (res, res.status_code)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
