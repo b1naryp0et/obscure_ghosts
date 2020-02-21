@@ -3,6 +3,27 @@
 html {
     position: relative;
     min-height: 100%;
+    color: #DDDDDD;
+    background-color: #111111;
+}
+
+input {
+    background-color: #111111;
+    color: #DDDDDD;
+    border-color: transparent transparent #DDDDDD transparent;
+    margin: 3px;
+    text-align: center;
+}
+
+input:focus{
+    background: radial-gradient(circle, rgba(224,171,13,1) 0%, rgba(252,70,107,0) 100%);
+}
+
+button {
+    border-color: #96791A;
+    background-color: #333333;
+    color: #EEEEEE;
+    padding: 10px;
 }
 
 body {
@@ -12,7 +33,6 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    color: #484848;
     font-size: 14px;
     font-family: 'optimusprincepsregular'
 }
