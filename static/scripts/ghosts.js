@@ -22,32 +22,46 @@ function getAuth () {
 
   $.post(url,x, function (data, status) {
     auth = data.auth_token;
+    $('#passwd, #email, #apiKey, #authSubmit').hide();
+    $('#projectUrl, #projectSubmit').show();
   },
   'json');
 }
 
 
 
-function pollCorrection (correctionId) {
+function pollCorrection (correctionId, taskId) {
+  // Poll the state of the correction until done (needs eventual timeout)
   $.get('/api/correction_requests/' + correctionId + '.json?auth_token=' + auth, function (data, status) {
     if (data.status === 'Fail') {
       alert('Something happened with the correction');
       return;
     } else if (data.status === 'Done') {
-      corr = data;
+      $('.checksContainer').removeClass('loading');
+      let cont = $('#' + taskId + '-checks')
+      for (check of data.result_display.checks) {
+        if (check.passed) {
+          cont.append('<div class="passCheck">Pass</div>');
+	} else {
+          cont.append('<div class="failCheck">Fail</div>');
+        }
+      }
       return;
     } else {
-      setTimeout(() => pollCorrection(correctionId), 5000);
+      setTimeout(() => pollCorrection(correctionId, taskId), 2000);
     }
  },
  'json');
 }
 
+
 function startCorrection (taskId) {
+  // Start a correction task
   $.post('/api/tasks/' + taskId + '/start_correction.json?auth_token=' + auth, function (data, status) {
     if (data.id !== null && data.id !== 0) {
+      $('.checksContainer').addClass('loading');
       alert('correctionRequestSent');
-      pollCorrection(data.id);
+      pollCorrection(data.id, taskId);
     } else {
       alert('could not correct');
     }
@@ -56,17 +70,23 @@ function startCorrection (taskId) {
 }
 
 
-
 function fillTasks (project) {
+  // Fill the html with tasks for a project
   for (task of project.tasks) {
     $('#projectTasks').append('<div class="task" data-id="' + task.id.toString() + '"></div>');
     $('#projectTasks').last().append('<h3 class="taskTitle">' + task.title + '</h3>');
     $('#projectTasks').last().append('<div class="checksContainer" id="' + task.id.toString() + '-checks"></div>');
-    $('#projectTasks').last().append('<input class="checkSubmit" data-id="' + task.id.toString() + '" type="submit">');
+    $('#projectTasks').last().append('<button class="checkSubmit" data-id="' + task.id.toString() + '" type="submit">Traverse the mist</button>');
   }
+
+  $('.checkSubmit').click(function () {
+    startCorrection(this.dataset.id);
+  });
 }
 
+
 function getProj () {
+  // Get the project details
   let regexp = /[\d]{1,4}/;
   let userText = $('#projectUrl').val();
   if (userText === '' || userText.match(regexp) === null) {
@@ -77,6 +97,7 @@ function getProj () {
   $.get('./api/projects/' + projnum + '.json?auth_token=' + auth, function (data, status) {
     proj = data;    
     fillTasks(proj);
+    $('#projectUrl, #projectSubmit').hide()
   },
   'json');
 }
@@ -84,11 +105,11 @@ function getProj () {
 
 var auth = undefined;
 var proj = undefined;
-var corr = undefined;
 $(document).ready (function () {
+  $('#projectUrl, #projectSubmit').hide()
 
   //--- Get the auth key on button click or pressing enter ---vv
-  $('#submit').click(getAuth);
+  $('#authSubmit').click(getAuth);
   $('#passwd, #email, #apiKey').keyup(function (e) {
     if (e.keyCode === 13) {
       getAuth();
@@ -97,8 +118,4 @@ $(document).ready (function () {
   //----------------------------------------------------------^^
 
   $('#projectSubmit').click(getProj);
-  $('.checkSubmit').click(function () {
-    console.log($(this).dataset.id);
-    startCorrection($(this).dataset.id);
-  });
 });
