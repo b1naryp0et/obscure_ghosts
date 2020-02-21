@@ -22,8 +22,9 @@ function getAuth () {
 
   $.post(url,x, function (data, status) {
     auth = data.auth_token;
-      localStorage.auth = auth;
-      gotAuth();
+    storage.auth = auth;
+    storage.authTime = Date.now();
+    gotAuth();
   },
   'json');
 }
@@ -103,16 +104,24 @@ function getProj () {
     fillTasks(data);
   },'json').fail( function(){
     // If the request failed (API key expired):
-    localStorage.auth = undefined;
+    storage.auth = undefined;
     $('#projectUrl, #projectSubmit').hide();
     $('#passwd, #email, #apiKey, #authSubmit').show();
   });
 }
 
-var auth = localStorage.auth;
+var storage = {};
+try {
+    localStorage.test = "test";
+    storage = window.localStorage;
+} catch(e) {
+}
+
+var auth = storage.auth;
+var authTime = storage.authTime;
 $(document).ready (function () {
   $('#projectUrl, #projectSubmit').hide()
-  if (auth)
+  if (auth && authTime && Date.now() - authTime < 1000*60*60*11)
     gotAuth();
     
   //--- Get the auth key on button click or pressing enter ---vv
