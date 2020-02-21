@@ -102,11 +102,15 @@ function getProj () {
   let projnum = userText.match(regexp)[0];
   $.get('./api/projects/' + projnum + '.json?auth_token=' + auth, function (data, status) {
     fillTasks(data);
-  },'json').fail( function(){
-    // If the request failed (API key expired):
-    storage.auth = undefined;
-    $('#projectUrl, #projectSubmit').hide();
-    $('#passwd, #email, #apiKey, #authSubmit').show();
+  },'json').fail(function(response){
+    if (response.status == 401) { // API key expired
+      storage.auth = "";
+      $('#projectUrl, #projectSubmit').hide();
+      $('#passwd, #email, #apiKey, #authSubmit').show();
+    } else if (response.status == 404) { // bad project ID
+      $('#projectTasks').empty();
+      alert("invalid project id");
+    }
   });
 }
 
