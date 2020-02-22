@@ -17,6 +17,7 @@ input {
 
 input:focus{
     background: radial-gradient(circle, rgba(224,171,13,1) 0%, rgba(252,70,107,0) 100%);
+    border-color: transparent transparent rgba(224, 171, 13, 1) transparent;
 }
 
 button {
@@ -102,7 +103,6 @@ div.checksContainer {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    background: url("./static/images/Ghost.png" no-repeat center);
 }
 .strikeout {
     font-size: 5em;
@@ -144,7 +144,16 @@ div.checksContainer {
     text-decoration: none;
     cursor: pointer;
 }
-h1 h2 h3 h4 h5 h6 {
+
+h1 {
     font-family: optimusprincepsregular, Tahoma, Verdana, Arial, sans-serif;
     text-align: center;
+}
+
+h2 {
+    font-family: optimusprincepsregular, Tahoma, Verdana, Arial, sans-serif;
+}
+
+h3 {
+    font-family: optimusprincepsregular, Tahoma, Verdana, Arial, sans-serif;
 }

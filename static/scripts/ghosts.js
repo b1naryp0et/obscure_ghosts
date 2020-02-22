@@ -141,7 +141,7 @@ try {
 } catch(e) {
 }
 
-var auth = undefined; //storage.auth;
+var auth = storage.auth;
 var authTime = storage.authTime;
 $(document).ready (function () {
   $('#fadeinlose, #fadeinwin').hide()

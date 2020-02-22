@@ -20,10 +20,10 @@ $(window).ready (function () {
   // }
 
   //make sure you have lower case "o"
-  let sound = document.getElementById("opening");
-  sound.currentTime = 0;
-  sound.loop = true; //if you want it to restart playing automatically when it ends
-  sound.play();
+  //let sound = document.getElementById("opening");
+  //sound.currentTime = 0;
+  //sound.loop = true; //if you want it to restart playing automatically when it ends
+  //sound.play();
 
   var that = this;
   setTimeout(function() {

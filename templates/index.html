@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Welcome to Obscure Ghosts!</title>
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="./static/styles/font/stylesheet.css">
 <link rel="stylesheet" href="./static/styles/header.css">
 <link rel="stylesheet" href="./static/styles/footer.css">
@@ -12,8 +12,8 @@
 <script src="./static/scripts/ghosts.js"></script>
 </head>
 <body>
-  <img src="./static/images/deathscreen.png" id="fadeinlose">
-  <img src="./static/images/victoryscreen.png" id="fadeinwin">
+  <img src="./static/images/deathscreen.png" id="fadeinlose" style="display: none">
+  <img src="./static/images/victoryscreen.png" id="fadeinwin" style="display: none">
   <!-- Trigger/Open The Modal -->
   <!-- <button id="myBtn">Open Modal</button> -->
 
@@ -25,7 +25,7 @@
     </audio>
     <!-- <<img src="static/images/greencheck.png"> -->
     <!-- Modal content -->
-    <div class="modal-content w3-animate-opacity">
+    <div class="modal-content w3-animate-fading">
       <!-- <span class="close">&times;</span> -->
       <p class="strikeout">Obscure Ghosts</p>
     </div>
@@ -39,8 +39,8 @@
   <input id="apiKey" placeholder="Enter API key">
   <button id="authSubmit" type="submit">Submit</button>
   <br>
-  <input id="projectUrl" placeholder="Please enter the project URL">
-  <button id="projectSubmit" type="submit">Submit</button>
+  <input id="projectUrl" placeholder="Please enter the project URL" style="display: none">
+  <button id="projectSubmit" type="submit" style="display: none">Submit</button>
   <div id="projectTasks">
   </div>
 </body>
