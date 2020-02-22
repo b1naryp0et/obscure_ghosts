@@ -1,4 +1,4 @@
-$(document).ready (function () {
+$(window).ready (function () {
     var modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
@@ -15,9 +15,16 @@ $(document).ready (function () {
     // }
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-	modal.style.display = "none";
-    }
+    // span.onclick = function() {
+    // 	modal.style.display = "none";
+    // }
+
+    //make sure you have lower case "o"
+
+    var that = this;
+    setTimeout(function() {
+	modal.style.dispaly = "none";
+    }, 5000);
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
