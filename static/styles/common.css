@@ -102,15 +102,31 @@ div.checksContainer {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    /* background: url("./static/images/Ghost.png" no-repeat center); */
+    background: url("./static/images/Ghost.png" no-repeat center);
 }
-
+.strikeout {
+    font-size: 5em;
+    line-height: 1em;
+    position: relative;
+}
+.strikeout::after {
+    border-bottom: 0.0225em solid white;
+    content: "";
+    left: 0;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 48%;
+}
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #000000;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
+    /* font-size: 60px; */
+    color: white;
+    text-align: center;
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
@@ -127,4 +143,8 @@ div.checksContainer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+h1 h2 h3 h4 h5 h6 {
+    font-family: optimusprincepsregular, Tahoma, Verdana, Arial, sans-serif;
+    text-align: center;
 }

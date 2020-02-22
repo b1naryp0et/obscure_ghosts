@@ -2,11 +2,12 @@
 <html>
 <head>
 <title>Welcome to Obscure Ghosts!</title>
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <link rel="stylesheet" href="./static/styles/font/stylesheet.css">
-<link rel="stylesheet" href="./static/styles/common.css">
 <link rel="stylesheet" href="./static/styles/header.css">
 <link rel="stylesheet" href="./static/styles/footer.css">
 <link rel="stylesheet" href="./static/styles/fades.css">
+<link rel="stylesheet" href="./static/styles/common.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="./static/scripts/ghosts.js"></script>
 </head>
@@ -18,18 +19,20 @@
 
   <!-- The Modal -->
   <div id="myModal" class="modal">
-
+    <audio id="opening" autoplay preload="auto">
+      <source src="./static/audio/BareMountain.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+    </audio>
+    <!-- <<img src="static/images/greencheck.png"> -->
     <!-- Modal content -->
-    <div class="modal-content">
+    <div class="modal-content w3-animate-opacity">
       <!-- <span class="close">&times;</span> -->
-      <p>Some text in the Modal..</p>
+      <p class="strikeout">Obscure Ghosts</p>
     </div>
 
   </div>
   <h1>Welcome to Obscure Ghosts!</h1>
 
-
-  <p><em>Thank you for using Obscure Ghosts.</em></p>
 
   <input id="email" placeholder="Enter Holberton email">
   <input id="passwd" type="password" placeholder="Enter password">
