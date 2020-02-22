@@ -127,6 +127,7 @@ try {
 var auth = undefined; //storage.auth;
 var authTime = storage.authTime;
 $(document).ready (function () {
+  $('#fadeinlose, #fadeinwin').hide()
   $('#projectUrl, #projectSubmit').hide()
   if (auth && authTime && Date.now() - authTime < 1000*60*60*11)
     gotAuth();
