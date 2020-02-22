@@ -1,0 +1,14 @@
+.fadeinlose {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 30%;
+    left: 0;
+}
+.fadeinwin {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 30%;
+    left: 0;
+}
