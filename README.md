@@ -21,7 +21,6 @@ By team of ~8 (our team eventually comprised of 6 engineers), we were free to bu
 * UI
 * Triumphs
 * Trials
-* File Descriptions
 * Authors
 
 
@@ -61,13 +60,7 @@ Our team determined that using a Dark Souls theme for our project would be suita
 -  We creatively used concepts from previous projects in the architecture of this project. 
 -   We had an excellent team leader in William Dyrland-Marquis
 
-## File Descriptions
-
-Listed below are the descriptions of the files in this repo:
-
-File | Description  
---------|---------------  
 
 ## Authors
-Faizan Khan :surfer:
-Jonathan Patterson -:candy:
+* William Dyrland-Marquis -Team Leader- 🥇 [maybe-william](https://github.com/maybe-william) | [@notwilliam4](https://twitter.com/notwilliam4)
+
