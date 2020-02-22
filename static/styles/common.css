@@ -51,6 +51,34 @@ div.container {
     align-items: stretch;
 }
 
+<<<<<<< HEAD
+=======
+div.checksContainer {
+    display: flex;
+    align-items: space-around;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.loading {
+    background: url('../images/Ghost.png') no-repeat center;
+    height: 50px;
+    width: 50px;
+}
+
+.passCheck {
+    background: url('../images/greencheck.jpg') no-repeat center;
+    height: 50px;
+    width: 50px;
+}
+
+.failCheck {
+    background: url('../images/redcheck.png') no-repeat center;
+    height: 50px;
+    width: 50px;
+}
+
+>>>>>>> 1d8bb9618c2266be356d71eca7f0a685e6c19f0a
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

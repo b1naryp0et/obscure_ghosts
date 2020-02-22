@@ -46,9 +46,9 @@ function pollCorrection (correctionId, taskId) {
       let cont = $('#' + taskId + '-checks')
       for (check of data.result_display.checks) {
         if (check.passed) {
-          cont.append('<div class="passCheck">Pass</div>');
+          cont.append('<div class="passCheck">P</div>');
 	} else {
-          cont.append('<div class="failCheck">Fail</div>');
+          cont.append('<div class="failCheck">F</div>');
         }
       }
       return;
