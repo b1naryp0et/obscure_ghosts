@@ -35,6 +35,20 @@ function gotAuth() {
     $('#projectUrl, #projectSubmit').show();
 }
 
+function notifyWinLose (won) {
+  if (won) {
+    $('#fadeinwin').fadeIn(5000);
+    setTimeout(function () {
+      $('#fadeinwin').hide();
+    }, 7000);
+  } else {
+    $('#fadeinlose').fadeIn(5000);
+    setTimeout(function () {
+      $('#fadeinlose').hide();
+    }, 7000); 
+  }
+}
+
 function pollCorrection (correctionId, taskId) {
   // Poll the state of the correction until done (needs eventual timeout)
   $.get('/api/correction_requests/' + correctionId + '.json?auth_token=' + auth, function (data, status) {
@@ -44,13 +58,16 @@ function pollCorrection (correctionId, taskId) {
     } else if (data.status === 'Done') {
       let cont = $('#' + taskId + '-checks');
       cont.removeClass('loading');
+      let win = true;
       for (check of data.result_display.checks) {
         if (check.passed) {
           cont.append('<div class="passCheck"></div>');
 	} else {
           cont.append('<div class="failCheck"></div>');
+	  win = false;
         }
       }
+      notifyWinLose(win);
       return;
     } else {
       setTimeout(() => pollCorrection(correctionId, taskId), 2000);
