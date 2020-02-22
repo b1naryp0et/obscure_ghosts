@@ -29,13 +29,14 @@ By team of ~8 (our team eventually comprised of 6 engineers), we were free to bu
 ## Usage
 
 1. Upon entering the site, enter you Holberton School credential
+![credentials png](https://user-images.githubusercontent.com/51524966/75085216-e6411600-54f4-11ea-9f7a-941eec587b6b.PNG)
 
 
-3. Enter the Holberton School Project URL and hit submit
+2. Enter the Holberton School Project URL and hit submit
 
-4. You'll be greeted by this screen where you'll be able to check how correct your task submissions are.
+3. You'll be greeted by this screen where you'll be able to check how correct your task submissions are.
 
-5. Traverse the midst if you dare!!
+4. Traverse the midst if you dare!!
 
 
 
