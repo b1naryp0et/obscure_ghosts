@@ -42,13 +42,13 @@ function pollCorrection (correctionId, taskId) {
       alert('Something happened with the correction');
       return;
     } else if (data.status === 'Done') {
-      $('.checksContainer').removeClass('loading');
-      let cont = $('#' + taskId + '-checks')
+      let cont = $('#' + taskId + '-checks');
+      cont.removeClass('loading');
       for (check of data.result_display.checks) {
         if (check.passed) {
-          cont.append('<div class="passCheck">P</div>');
+          cont.append('<div class="passCheck"></div>');
 	} else {
-          cont.append('<div class="failCheck">F</div>');
+          cont.append('<div class="failCheck"></div>');
         }
       }
       return;
@@ -64,8 +64,8 @@ function startCorrection (taskId) {
   // Start a correction task
   $.post('/api/tasks/' + taskId + '/start_correction.json?auth_token=' + auth, function (data, status) {
     if (data.id !== null && data.id !== 0) {
-      $('.checksContainer').addClass('loading');
-      alert('correctionRequestSent');
+      $('#' + taskId + '-checks').empty();
+      $('#' + taskId + '-checks').addClass('loading');
       pollCorrection(data.id, taskId);
     } else {
       alert('could not correct');
@@ -124,7 +124,7 @@ try {
 } catch(e) {
 }
 
-var auth = storage.auth;
+var auth = undefined; //storage.auth;
 var authTime = storage.authTime;
 $(document).ready (function () {
   $('#projectUrl, #projectSubmit').hide()

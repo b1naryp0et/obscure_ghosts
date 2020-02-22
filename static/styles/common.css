@@ -4,11 +4,11 @@ html {
     position: relative;
     min-height: 100%;
     color: #DDDDDD;
-    background-color: #111111;
+    background-color: #000000;
 }
 
 input {
-    background-color: #111111;
+    background-color: #000000;
     color: #DDDDDD;
     border-color: transparent transparent #DDDDDD transparent;
     margin: 3px;
@@ -24,6 +24,10 @@ button {
     background-color: #333333;
     color: #EEEEEE;
     padding: 10px;
+}
+
+.checkSubmit {
+    width: 100%
 }
 
 body {
@@ -53,27 +57,37 @@ div.container {
 
 div.checksContainer {
     display: flex;
-    align-items: space-around;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .loading {
-    background: url('../images/Ghost.png') no-repeat center;
-    height: 50px;
-    width: 50px;
+    justify-self: center;
+    background: url('../images/loading_animation.gif') no-repeat center;
+    background-size: 250px 250px;
+    height: 250px;
+    width: 250px;
+    margin: 20px auto 20px auto;
+    border-radius: 10%;
 }
 
 .passCheck {
-    background: url('../images/greencheck.jpg') no-repeat center;
-    height: 50px;
-    width: 50px;
+    background: url('../images/greencheck.png') no-repeat center;
+    background-size: 100px 100px;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 10%;
 }
 
 .failCheck {
     background: url('../images/redcheck.png') no-repeat center;
-    height: 50px;
-    width: 50px;
+    background-size: 100px 100px;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 10%;
 }
 
 /* The Modal (background) */
