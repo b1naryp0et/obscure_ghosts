@@ -32,11 +32,14 @@ By team of ~8 (our team eventually comprised of 6 engineers), we were free to bu
 ![credentials png](https://user-images.githubusercontent.com/51524966/75085216-e6411600-54f4-11ea-9f7a-941eec587b6b.PNG)
 
 
-2. Enter the Holberton School Project URL and hit submit
+2. Enter the Holberton School Project URL and hit submit.
+![enter_project_url](https://user-images.githubusercontent.com/51524966/75085320-0c1aea80-54f6-11ea-87c6-7b0bb17e4da8.PNG)
+
 
 3. You'll be greeted by this screen where you'll be able to check how correct your task submissions are.
+![greeted_by_next_screen](https://user-images.githubusercontent.com/51524966/75085290-b1818e80-54f5-11ea-9f07-18b060b7f61c.PNG)
 
-4. Traverse the midst if you dare!!
+4. Traverse the mist if you dare!!
 
 
 
