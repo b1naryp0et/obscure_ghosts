@@ -73,7 +73,7 @@ div.checksContainer {
 }
 
 .passCheck {
-    background: url('../images/greencheck.png') no-repeat center;
+    background: url('../images/greencheck2.png') no-repeat center;
     background-size: 100px 100px;
     height: 100px;
     width: 100px;
@@ -82,7 +82,7 @@ div.checksContainer {
 }
 
 .failCheck {
-    background: url('../images/redcheck.png') no-repeat center;
+    background: url('../images/redcheck2.png') no-repeat center;
     background-size: 100px 100px;
     height: 100px;
     width: 100px;
