@@ -61,37 +61,6 @@ Our team determined that using a Dark Souls theme for our project would be suita
 -  We creatively used concepts from previous projects in the architecture of this project. 
 -   We had an excellent team leader in William Dyrland-Marquis
 
-### Other Classes
-
-More classes inherited from base model:
-
--   User
--   Amenity
--   Review
--   Place
--   City
--   State
-
-
-## Example
-```
-guillaume@ubuntu:~/AirBnB$ ./console.py
-(hbnb) help
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-
-(hbnb) 
-(hbnb) help quit
-Quit command to exit the program
-
-(hbnb) 
-(hbnb) 
-(hbnb) quit 
-guillaume@ubuntu:~/AirBnB$ 
-```
-
 ## File Descriptions
 
 Listed below are the descriptions of the files in this repo:
