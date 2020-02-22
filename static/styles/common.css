@@ -35,11 +35,11 @@ body {
     flex-direction: column;
     height: 100%;
     min-height: 100vh;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     font-size: 14px;
-    font-family: 'optimusprincepsregular';
-    padding: 40px;
+    width: 35em;
+    font-family: optimusprincepsregular, Tahoma, Verdana, Arial, sans-serif;
 }
 
 main {
@@ -102,6 +102,7 @@ div.checksContainer {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /* background: url("./static/images/Ghost.png" no-repeat center); */
 }
 
 /* Modal Content/Box */
