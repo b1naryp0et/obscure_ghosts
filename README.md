@@ -12,9 +12,6 @@ By team of ~8 (our team eventually comprised of 6 engineers), we were free to bu
 * Empty Flasks are displayed for portions of the task which are incorrect
 * Different messages are displayed depending on outcome
 
-#### High Level Explanation of What We Did
-
-
 
 ## Table of Contents
 * Usage
@@ -63,4 +60,15 @@ Our team determined that using a Dark Souls theme for our project would be suita
 
 ## Authors
 * William Dyrland-Marquis -Team Leader- 🥇 [maybe-william](https://github.com/maybe-william) | [@notwilliam4](https://twitter.com/notwilliam4)
+* Nathaniel Marofsky 🎵 [821-N](https://github.com/821-N) | [@counting_sort](https://twitter.com/counting_sort)
+* John Knight ❄️ [jfkquality](https://github.com/jfkquality) | [@JohnFKnight2](https://twitter.com/JohnFKnight2)
+* Christian Williams 🐦 [chriswill88](https://github.com/chriswill88) | [@ChrisWill79](https://twitter.com/ChrisWill79)
+* Faizan Khan 🌌 [b1naryp0et](https://github.com/b1naryp0et) | [@b1nary_p0et](https://twitter.com/b1nary_p0et)
+* Brandyn Reindel 🎸 [BrandynR](https://github.com/BrandynR) | [@Optimus_is_Me](https://twitter.com/Optimus_is_Me)
+
+
+
+
+
+
 
